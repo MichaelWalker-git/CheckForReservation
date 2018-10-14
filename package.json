@@ -1,0 +1,24 @@
+{
+  "name": "checkforreservation",
+  "version": "1.0.0",
+  "description": "I was having trouble knowing when there was a reservation available at Septin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mike-Tran/CheckForReservation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mike-Tran/CheckForReservation/issues"
+  },
+  "homepage": "https://github.com/Mike-Tran/CheckForReservation#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "https": "^1.0.0"
+  }
+}
