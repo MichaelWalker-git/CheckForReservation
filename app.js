@@ -2,7 +2,7 @@ const express = require('express');
 const http = require("https");
 require('dotenv').config();
 
-const textPhone = require('./twilio_service');
+const EmailService = require('./email_service');
 
 const options = {
 	"method": "GET",
@@ -15,21 +15,23 @@ const options = {
 		"postman-token": "e6559e72-fd1b-456e-770e-efb9d034f8be"
 	}
 };
+EmailService.sendEmail();
 
-const req = http.request(options,  (res)  => {
-	const chunks = [];
-
-	res.on("data", (chunk) => {
-		chunks.push(chunk);
-	});
-
-	res.on("end",  () => {
-		const body = Buffer.concat(chunks);
-		if(body.availableNbPeopleList.length > 0){
-			textPhone();
-		}
-		console.log(body.toString());
-	});
-});
-
-req.end();
+// const req = http.request(options,  (res)  => {
+// 	const chunks = [];
+//
+// 	res.on("data", (chunk) => {
+// 		chunks.push(chunk);
+// 	});
+//
+// 	res.on("end",  () => {
+// 		const body = Buffer.concat(chunks);
+// 		if(body.availableNbPeopleList.length > 0){
+// 			console.log("RESERVATION,send email !!!");
+// 		}
+//
+// 		console.log(body.toString());
+// 	});
+// });
+//
+// req.end();
