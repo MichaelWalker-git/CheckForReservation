@@ -14,14 +14,15 @@ let repeatFunc;
 const checkSeptimeUrl = () => {
 	request(options, function (error, response, body) {
 		if (error) throw new Error(error, "ERR");
-		const responseBody = JSON.parse(body);
 
-		const timeInterval = 5 * (60 * 1000);
-		if(responseBody.availableNbPeopleList> 0) {
+		const responseBody = JSON.parse(JSON.stringify((body)));
+
+		const timeInterval = 1 * (60 * 1000);
+		if(responseBody.availableNbPeopleList > 0) {
 			EmailService.sendEmail();
 			window.clearTimeout(repeatFunc);
 		} else {
-			repeatFunc =setTimeout(checkSeptimeUrl, timeInterval);
+			repeatFunc = setTimeout(checkSeptimeUrl, timeInterval);
 		}
 		console.log(body.toString(), new Date());
 	});
