@@ -12,19 +12,41 @@ const options = { method: 'GET',
 let repeatFunc;
 
 const checkSeptimeUrl = () => {
+	const timeInterval = 1 * (60 * 1000);
+
 	request(options, function (error, response, body) {
-		if (error) throw new Error(error, "ERR");
+		if (error) {
+			repeatFunc = setTimeout(checkSeptimeUrl, timeInterval * 5);
 
-		const responseBody = JSON.parse(JSON.stringify((body)));
+			throw new Error(error, "ERR");
 
-		const timeInterval = 1 * (60 * 1000);
+		}
+
+		/**
+		 * @typedef {{
+		 * nb_people: number,
+		 * has_wait_list: number,
+		 * is_group: boolean,
+		 * sale_type_list: {
+		 *   hasCurrentSaleType : number,
+		 *   hasNormalSaleType: number,
+		 *   hasCrossSaleType:number,
+		 *   hasCrossRestaurant: number
+		 *   }
+		 * }} PeopleList
+		 */
+
+		/**
+		 * If there is a reservation available, then we send an email, else we recursively call the function.
+		 * @type {{availableNbPeopleList: !PeopleList, idSaleType: string, idSaleTypeNormal: number}}
+		 */
+		const responseBody = JSON.parse(body);
 		if(responseBody.availableNbPeopleList > 0) {
 			EmailService.sendEmail();
-			window.clearTimeout(repeatFunc);
 		} else {
 			repeatFunc = setTimeout(checkSeptimeUrl, timeInterval);
 		}
-		console.log(body.toString(), new Date());
+		console.log(responseBody.toString(), new Date());
 	});
 };
 
