@@ -38,15 +38,14 @@ const checkSeptimeUrl = () => {
 
 		/**
 		 * If there is a reservation available, then we send an email, else we recursively call the function.
-		 * @type {{availableNbPeopleList: !PeopleList, idSaleType: string, idSaleTypeNormal: number}}
+		 * @type {{availableNbPeopleList: !Array<PeopleList>, idSaleType: string, idSaleTypeNormal: number}}
 		 */
 		const responseBody = JSON.parse(body);
-		if(responseBody.availableNbPeopleList > 0) {
+		if(responseBody.availableNbPeopleList.length > 0) {
 			EmailService.sendEmail();
-		} else {
-			repeatFunc = setTimeout(checkSeptimeUrl, timeInterval);
 		}
-		console.log(responseBody.toString(), new Date());
+		repeatFunc = setTimeout(checkSeptimeUrl, timeInterval);
+		console.log(body, new Date(), "|", typeof responseBody, responseBody.availableNbPeopleList.length);
 	});
 };
 
