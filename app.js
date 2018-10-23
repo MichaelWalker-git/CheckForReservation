@@ -43,8 +43,10 @@ const checkSeptimeUrl = () => {
 		const responseBody = JSON.parse(body);
 		if(responseBody.availableNbPeopleList.length > 0) {
 			EmailService.sendEmail();
+			repeatFunc = setTimeout(checkSeptimeUrl, timeInterval + 5);
+		} else {
+			repeatFunc = setTimeout(checkSeptimeUrl, timeInterval);
 		}
-		repeatFunc = setTimeout(checkSeptimeUrl, timeInterval);
 		console.log(body, new Date(), "|", typeof responseBody, responseBody.availableNbPeopleList.length);
 	});
 };
