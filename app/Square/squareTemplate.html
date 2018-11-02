@@ -1,0 +1,32 @@
+<form id="nonce-form" novalidate action="PATH/TO/PAYMENT/PROCESSING/PAGE" method="post">
+    <fieldset>
+        <span class="label">Card Number</span>
+        <div id="sq-card-number"></div>
+
+        <div class="third">
+            <span class="label">Expiration</span>
+            <div id="sq-expiration-date"></div>
+        </div>
+
+        <div class="third">
+            <span class="label">CVV</span>
+            <div id="sq-cvv"></div>
+        </div>
+
+        <div class="third">
+            <span class="label">Postal</span>
+            <div id="sq-postal-code"></div>
+        </div>
+    </fieldset>
+
+    <button class="button-credit-card"
+            id="sq-creditcard"
+            onclick="requestCardNonce(event)">Pay $6.00</button>
+
+    <div id="error"></div>
+
+    <!--
+      After a nonce is generated it will be assigned to this hidden input field.
+    -->
+    <input type="hidden" id="card-nonce" name="nonce">
+</form>
