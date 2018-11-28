@@ -16,7 +16,7 @@ exports.sendEmail = () => {
 		// setup email data with unicode symbols
 		let mailOptions = {
 			from: `${process.env.USERNAME}`, // sender address
-			to: 'michaelhuytran@gmail.com', // list of receivers
+			to: 'michaelhuytran@gmail.com, 7145150242@mms.att.net ', // list of receivers
 			subject: 'Septime Reservation Available Hurry! See here: https://module.lafourchette.com/en_GB/module/10889-d34ca#/54499/pdh?pax=2', // Subject line
 			text: 'Check reservations here: https://module.lafourchette.com/en_GB/module/10889-d34ca#/54499/pdh', // plain text body
 			html: '<b>RESERVATION AVAILABLE</b>' // html body
