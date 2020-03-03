@@ -24,12 +24,12 @@ function NavBar() {
 
 	return (
 		<div className={styles.root}>
-			<AppBar position="static">
+			<AppBar>
 				<Toolbar>
-					<IconButton className={styles.menuButton} color="inherit" aria-label="Menu">
+					<IconButton color="inherit" aria-label="Menu">
 						<MenuIcon />
 					</IconButton>
-					<Typography variant="h6" color="inherit" className={styles.grow}>
+					<Typography variant="h6" color="inherit">
 						Septime
 					</Typography>
 					<Button color="inherit">Login</Button>
