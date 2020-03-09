@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from "./components/Nav";
 import AboutThisApp from "./components/AboutThisApp";
+import ProductHowItWorks from "./components/ProductHowItWorks";
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <Nav/>
         <AboutThisApp/>
+        <ProductHowItWorks/>
         </header>
       </div>
     );

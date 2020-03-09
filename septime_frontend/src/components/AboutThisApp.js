@@ -11,7 +11,7 @@ function AboutThisApp(){
 	return (
 		<div>
 		<Typography variant='h2' color="primary">
-			Looking to book a reservation for Septime?
+			Want to translate your audio files into editable transcripts?
 		</Typography>
 
 			<Typography variant='h2'  color="primary">
@@ -19,7 +19,7 @@ function AboutThisApp(){
 			</Typography>
 			<Input type="file" onChange={handleSubmitFile}/>
 			<div>
-				<Button></Button>
+				<Button>Button</Button>
 			</div>
 	</div>)
 }
